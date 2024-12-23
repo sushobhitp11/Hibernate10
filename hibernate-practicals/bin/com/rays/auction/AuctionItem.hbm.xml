@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 17-Dec-2024, 12:44:09 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 23-Dec-2024, 10:45:59 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.rays.auction.AuctionItem" table="AUCTIONITEM">
-        <id name="id" type="int">
-            <column name="ID" />
-            <generator class="assigned" />
-        </id>
-        <property name="description" type="java.lang.String">
-            <column name="DESCRIPTION" />
-        </property>
-        <set name="bids" table="AUCTIONITEM" cascade="all" lazy="true">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		<set name="bids" table="AUCTIONITEM" cascade="all" fetch="join">
 			<key>
 				<column name="ITEM_ID" />
 			</key>
 			<one-to-many class="com.rays.auction.Bid" />
 		</set>
-    </class>
+	</class>
 </hibernate-mapping>
